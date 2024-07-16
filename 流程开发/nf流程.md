@@ -80,10 +80,7 @@ fatal: refusing to merge unrelated histories
 
 
 
-</br>
 
-## Nextflow | Chenhao's Personal Page (lichenhao.netlify.app)
-Nextflow的基本概念和使用方法_nextflow教程-CSDN博客
 
 
 </br>

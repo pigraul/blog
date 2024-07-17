@@ -104,6 +104,11 @@ https://github.com/alexdobin/STAR/issues/1887
 (https://github.com/nextflow-io/nextflow/issues/165)
 
 
+</br>
 
+## 不识别python文件
+- 文件需要可执行
+- 文件编码，换行文件需要LF格式
+![7f2571f755deca7c60359adfa72ba478](https://github.com/user-attachments/assets/d5921500-a745-4dcf-94ea-b6019cbec6b4)
 
 

@@ -1,5 +1,5 @@
 ## 切分bam，并行计算，减少时间
- (https://nf-co.re/subworkflows/bam_split_by_region)
+ https://nf-co.re/subworkflows/bam_split_by_region
  
 切分等级考虑（目前选择4）：
 
@@ -13,7 +13,7 @@
 
 
 ## Bulk slamseq流程
-(https://github.com/nf-core/slamseq)
+https://github.com/nf-core/slamseq
 
 </br>
 
@@ -93,7 +93,7 @@ https://github.com/alexdobin/STAR/issues/1887
 
 ## 怎么使用命令行的输出作为一个变量在script里使用
 
-(https://stackoverflow.com/questions/66568781/how-to-call-a-variable-created-in-the-script-in-nextflow)
+https://stackoverflow.com/questions/66568781/how-to-call-a-variable-created-in-the-script-in-nextflow
 
 
 </br>
@@ -101,7 +101,7 @@ https://github.com/alexdobin/STAR/issues/1887
 ## 删除临时文件
 `process.scratch = true`
 
-(https://github.com/nextflow-io/nextflow/issues/165)
+https://github.com/nextflow-io/nextflow/issues/165
 
 
 </br>
@@ -111,4 +111,7 @@ https://github.com/alexdobin/STAR/issues/1887
 - 文件编码，换行文件需要LF格式
 ![7f2571f755deca7c60359adfa72ba478](https://github.com/user-attachments/assets/d5921500-a745-4dcf-94ea-b6019cbec6b4)
 
+</br>
 
+## 空channel的传递
+https://nextflow-io.github.io/patterns/process-when-empty/

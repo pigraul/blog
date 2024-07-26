@@ -115,3 +115,29 @@ https://github.com/nextflow-io/nextflow/issues/165
 
 ## 空channel的传递
 https://nextflow-io.github.io/patterns/process-when-empty/
+
+</br>
+
+## 一个process的多个输出使用不同模式
+publishDir使用数组定义
+```
+publishDir = [
+                    [
+                        path: { "${params.outdir}/${params.trimmer}/fastqc" },
+                        mode: params.publish_dir_mode,
+                        pattern: "*.{html,zip}"
+                    ],
+                    [
+                        path: { "${params.outdir}/${params.trimmer}" },
+                        mode: params.publish_dir_mode,
+                        pattern: "*.fq.gz",
+                        enabled: params.save_trimmed
+                    ],
+                    [
+                        path: { "${params.outdir}/${params.trimmer}" },
+                        mode: params.publish_dir_mode,
+                        pattern: "*.txt"
+                    ]
+]
+```
+https://github.com/nf-core/rnaseq/blob/3bec2331cac2b5ff88a1dc71a21fab6529b57a0f/conf/modules.config#L237-L254

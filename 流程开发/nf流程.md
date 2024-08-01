@@ -1,4 +1,19 @@
-## 切分bam，并行计算，减少时间
+
+- [切分bam](#切分bam)
+- [bulk slamseq流程](#bulk-slamseq流程)
+- [在自己仓库中保持上游更新而不做任何修改或合并请求](#保持上游更新)
+- [Starsolo Statistics Explanation](#starsolo-statistics-explanation)
+- [使用命令行的输出作为一个变量在script里使用](#使用命令行的输出作为一个变量在script里使用)
+- [删除临时文件](#删除临时文件)
+- [不识别python文件](#不识别python文件)
+- [空channel的传递](#空channel的传递)
+- [一个process的多个输出自定义](#一个process的多个输出自定义)
+
+<br>
+
+## 切分bam
+切分bam，并行计算，减少时间
+
  https://nf-co.re/subworkflows/bam_split_by_region
  
 切分等级考虑（目前选择4）：
@@ -18,7 +33,9 @@ https://github.com/nf-core/slamseq
 </br>
 
 
-## 只想在自己的仓库中保持原始仓库的更新，而不做任何修改或合并请求（Pull Request），可以通过以下步骤实现：
+## 保持上游更新
+只想在自己的仓库中保持原始仓库的更新，而不做任何修改或合并请求（Pull Request），可以通过以下步骤实现：
+
 添加远程原始仓库</br>
 首先，将原始仓库添加为远程仓库：
 
@@ -91,7 +108,7 @@ https://github.com/alexdobin/STAR/issues/1887
 
 </br>
 
-## 怎么使用命令行的输出作为一个变量在script里使用
+## 使用命令行的输出作为一个变量在script里使用
 
 https://stackoverflow.com/questions/66568781/how-to-call-a-variable-created-in-the-script-in-nextflow
 
@@ -118,7 +135,7 @@ https://nextflow-io.github.io/patterns/process-when-empty/
 
 </br>
 
-## 一个process的多个输出使用不同模式
+## 一个process的多个输出自定义
 publishDir使用数组定义
 ```
 publishDir = [

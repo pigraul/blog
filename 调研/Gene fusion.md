@@ -52,3 +52,19 @@
 ## nf-core/rnafusion | Seqera
 (https://seqera.io/pipelines/rnafusion--nf-core/)
 
+</br>
+
+## genefusion类型，尤其是duplicate
+https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02696-w
+
+</br>
+
+## Genefusion的应用文章，涉及单细胞，过滤标准
+[Evolution and structure of clinically relevant gene fusions in multiple myeloma | Nature Communications](https://www.nature.com/articles/s41467-020-16434-y)
+
+</br>
+
+## 已知的一些融合基因
+https://github.com/ding-lab/Fusion_hg38
+
+</br>

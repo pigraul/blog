@@ -7,6 +7,8 @@
 - [不识别python文件](#不识别python文件)
 - [空channel的传递](#空channel的传递)
 - [一个process的多个输出自定义](#一个process的多个输出自定义)
+- [Optional input](#optional-input)
+- [nextflow不输出到最终路径](#nextflow不输出到最终路径)
 
 <br>
 
@@ -88,3 +90,20 @@ publishDir = [
 ]
 ```
 https://github.com/nf-core/rnaseq/blob/3bec2331cac2b5ff88a1dc71a21fab6529b57a0f/conf/modules.config#L237-L254
+
+</br>
+
+## Optional input
+
+https://nextflow-io.github.io/patterns/optional-input/
+
+</br>
+
+## nextflow不输出到最终路径
+```
+    withName: GATK4_BEDTOINTERVALLIST {
+        publishDir  = [ enabled: false ]
+    }
+```
+
+</br>

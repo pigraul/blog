@@ -111,7 +111,7 @@ https://nextflow-io.github.io/patterns/optional-input/
 
 ## scanpy docker权限问题
 
-遇到numba等包的权限问题，可以设置临时路径
+遇到numba等包的权限问题，可以通过`containerOptions`设置临时路径
 
 ```
 process LABEL {
@@ -120,3 +120,15 @@ process LABEL {
 }
 ```
 
+如果有matlibplot的权限问题，可以在制作docker时在Dockerfile里加入
+```
+FROM python:3.9
+
+# 创建需要的目录并设置权限
+RUN mkdir -p ~/.config/matplotlib && \
+    mkdir -p ~/.cache/fontconfig
+
+# 设置环境变量
+ENV MPLCONFIGDIR=~/.config/matplotlib
+ENV FONTCONFIG_HOME=~/.cache/fontconfig
+```

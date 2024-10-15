@@ -9,6 +9,7 @@
 - [一个process的多个输出自定义](#一个process的多个输出自定义)
 - [Optional input](#optional-input)
 - [nextflow不输出到最终路径](#nextflow不输出到最终路径)
+- [scanpy docker权限问题](#scanpy-docker权限问题)
 
 <br>
 
@@ -107,3 +108,38 @@ https://nextflow-io.github.io/patterns/optional-input/
 ```
 
 </br>
+
+## scanpy docker权限问题
+
+1. matlibplot的权限，可以在制作docker时，在Dockerfile中添加语句
+```
+FROM python:3.12.7
+
+RUN mkdir -p ~/.config/matplotlib && \
+    mkdir -p ~/.cache/fontconfig
+
+# 设置环境变量
+ENV MPLCONFIGDIR=~/.config/matplotlib
+ENV FONTCONFIG_HOME=~/.cache/fontconfig
+
+RUN pip install scanpy==1.10.2
+
+```
+</br>
+
+2. numba的权限，在nf中加入临时路径
+```
+process LABELED_SUMMARY {
+    
+    """
+    mkdir ./tmp
+    chmod ugo+rwx -R ./tmp
+    export NUMBA_CACHE_DIR="./tmp"
+
+    labeled_summary.py 
+    """
+
+}
+
+```
+

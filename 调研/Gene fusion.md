@@ -1,3 +1,8 @@
+## 融合基因数据库
+[FusionGDB2](https://compbio.uth.edu/FusionGDB2/)
+
+</br>
+
 ## Gene fusion的常用方法（包括非测序方法）
 (https://www.sophiagenetics.com/clinical/oncology/gene-fusions/)
 

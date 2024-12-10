@@ -10,6 +10,7 @@
 - [Optional input](#optional-input)
 - [nextflow不输出到最终路径](#nextflow不输出到最终路径)
 - [scanpy docker权限问题](#scanpy-docker权限问题)
+- [java.lang.InternalError错误](#javalanginternalerror错误)
 
 <br>
 
@@ -132,3 +133,21 @@ RUN mkdir -p ~/.config/matplotlib && \
 ENV MPLCONFIGDIR=~/.config/matplotlib
 ENV FONTCONFIG_HOME=~/.cache/fontconfig
 ```
+
+</br>
+
+## java.lang.InternalError错误
+
+在某些磁盘出现此报错
+```
+Dec-03 14:07:38.651 [main] ERROR nextflow.cli.Launcher - @unknown
+java.lang.InternalError: a fault occurred in a recent unsafe memory access operation in compiled Java code
+        at java.base/java.nio.ByteBuffer.position(ByteBuffer.java:1516)
+        at java.base/java.nio.MappedByteBuffer.position(MappedByteBuffer.java:321)
+        at java.base/java.nio.MappedByteBuffer.position(MappedByteBuffer.java:73)
+        at java.base/java.nio.ByteBuffer.put(ByteBuffer.java:1183)
+(...)
+```
+https://github.com/nextflow-io/nextflow/issues/842#issuecomment-567119760  提供了三个解决方案，在我们集群上第三个方案可以解决问题，但是要注意使用这个方法，不能resume了。
+
+`NXF_OPTS="-Dleveldb.mmap=false" nextflow run hello`

@@ -30,7 +30,9 @@ https://github.com/alexdobin/STAR/discussions/1948
 
 [不同实验方法和计算方法的综述文章](https://pmc.ncbi.nlm.nih.gov/articles/PMC9684954/)
 
-[INSPEcT: a computational tool to infer mRNA synthesis, processing and degradation dynamics from RNA- and 4sU-seq time course experiments](https://bioconductor.org/packages/release/bioc/vignettes/INSPEcT/inst/doc/INSPEcT.html)
+[INSPEcT](https://bioconductor.org/packages/release/bioc/vignettes/INSPEcT/inst/doc/INSPEcT.html)  近期仍在更新
 
+[bakR](https://github.com/simonlabcode/bakR)
 
+[SSRE](https://github.com/BergmannLab/SingleSampleRNAdynamics)  single time point
 

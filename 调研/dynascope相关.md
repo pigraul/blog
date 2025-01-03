@@ -32,7 +32,7 @@ https://github.com/alexdobin/STAR/discussions/1948
 
 [INSPEcT](https://bioconductor.org/packages/release/bioc/vignettes/INSPEcT/inst/doc/INSPEcT.html)  近期仍在更新
 
-[bakR](https://github.com/simonlabcode/bakR)
+[bakR](https://github.com/simonlabcode/bakR)  近期仍在更新
 
 [SSRE](https://github.com/BergmannLab/SingleSampleRNAdynamics)  single time point
 

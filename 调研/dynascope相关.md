@@ -36,3 +36,6 @@ https://github.com/alexdobin/STAR/discussions/1948
 
 [SSRE](https://github.com/BergmannLab/SingleSampleRNAdynamics)  single time point
 
+[Halfpipe](https://www.rna-seqblog.com/halfpipe-a-tool-for-analyzing-metabolic-labeling-rna-seq-data-to-quantify-rna-half-lives/)
+
+[SplicingIndex](https://pmc.ncbi.nlm.nih.gov/articles/PMC11195214/#S10)

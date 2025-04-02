@@ -73,3 +73,8 @@ https://genomebiology.biomedcentral.com/articles/10.1186/s13059-022-02696-w
 https://github.com/ding-lab/Fusion_hg38
 
 </br>
+
+## scFusionTTT: Single-cell transcriptomics and proteomics fusion with Test-Time Training layers
+https://arxiv.org/html/2410.13257v1
+
+</br>

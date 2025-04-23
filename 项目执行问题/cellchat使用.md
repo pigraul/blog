@@ -4,11 +4,10 @@
 
 在层次图和圆形图中，圆形的大小与每个细胞组中的细胞数量成正比。在层次图中，实心圆和空心圆分别代表源和目标。
 
-在弦图中，内部较细的条形的颜色表示接收来自相应外部条形信号的目标。内部条形的大小与目标接收到的信号强度成正比。（下图红色框标记的）这样的内部条形有助于解读复杂的弦图。**需要注意的是，对于某些细胞组，存在一些没有任何弦连接的内部条形，请忽略它们，因为这是一个尚未被 circlize 包解决的问题。**
+在弦图中，内部较细的条形的颜色表示接收来自相应外部条形信号的目标。内部条形的大小与目标接收到的信号强度成正比。这样的内部条形有助于解读复杂的弦图。**需要注意的是，对于某些细胞组，存在一些没有任何弦连接的内部条形，请忽略它们，因为这是一个尚未被 circlize 包解决的问题。**
 
 Explnations of edge color/weight, node color/size/shape: In all visualization plots, edge colors are consistent with the sources as sender, and edge weights are proportional to the interaction strength. Thicker edge line indicates a stronger signal. In the Hierarchy plot and Circle plot, circle sizes are proportional to the number of cells in each cell group. In the hierarchy plot, solid and open circles represent source and target, respectively. In the Chord diagram, the inner thinner bar colors represent the targets that receive signal from the corresponding outer bar. The inner bar size is proportional to the signal strength received by the targets. Such inner bar is helpful for interpreting the complex chord diagram. Note that there exist some inner bars without any chord for some cell groups, please just igore it because this is an issue that has not been addressed by circlize package.
 
-![image](https://github.com/user-attachments/assets/508e4eb1-e4b6-4cab-b5e5-f9dfee31cbae)
 
 </br>
 

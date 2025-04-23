@@ -34,3 +34,9 @@ Explnations of edge color/weight, node color/size/shape: In all visualization pl
 https://github.com/jinworks/CellChat/issues/20
 
 https://github.com/sqjin/CellChat/issues/414
+
+
+
+# 提取特定pathway的基因
+
+extractEnrichedLR

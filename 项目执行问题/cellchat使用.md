@@ -35,8 +35,8 @@ https://github.com/jinworks/CellChat/issues/20
 
 https://github.com/sqjin/CellChat/issues/414
 
-
+</br>
 
 # 提取特定pathway的基因
 
-extractEnrichedLR
+cellchat自带画基因表达量的命令`plotGeneExpression`，用来画指定通路或者L-R pairs基因的表达量的“violin”, “dot”, “bar”。但是如果对表达量作图有个性化的需求，可以用`extractEnrichedLR`来提取出相应的基因列表，再自己画图。

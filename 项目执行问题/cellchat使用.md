@@ -25,6 +25,21 @@ Explnations of edge color/weight, node color/size/shape: In all visualization pl
 
 </br>
 
+
+# chord弦图相关问题
+默认情况下，每个细胞类型的弦的宽度表示信号强度，宽度自适应，有的老师想使每个细胞类型的弦的宽度一致
+
+我们默认画弦图使用`netVisual_aggregate(cellchat, signaling = "TGFb", layout = "chord"`，这个命令无法修改弦的宽度；cellchat提供了另外一个画弦图的命令`netVisual_chord_cell(cellchat, signaling = "TGFb", scale = TRUE)`，将`scale = TRUE`则可以画相同宽度，`scale = FALSE`结果与`netVisual_aggregate`一致
+
+注意一旦scale了，通过图形，只能比较细胞内部的强度，而无法比较细胞间的强度。
+![image](https://github.com/user-attachments/assets/0b00c180-ac3c-4f44-97e5-36962a2e2b4b)
+
+![image](https://github.com/user-attachments/assets/818d788d-a32f-48cc-87ab-5a8b67e3ef6a)
+
+
+
+</br>
+
 # netVisual_heatmap()使用问题
 
 统一尺度问题

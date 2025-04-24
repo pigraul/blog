@@ -49,6 +49,8 @@ https://github.com/jinworks/CellChat/issues/20
 
 https://github.com/sqjin/CellChat/issues/414
 
+https://github.com/sqjin/CellChat/issues/361
+
 </br>
 
 # 提取特定pathway的基因

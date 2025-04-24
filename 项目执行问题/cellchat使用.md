@@ -43,7 +43,7 @@ Explnations of edge color/weight, node color/size/shape: In all visualization pl
 
 统一尺度问题
 
-并行展示多个样本的heatmap，虽然legend只展示了一个，但是每个图片还是自己的scale尺度
+并行展示多个样本的heatmap，虽然legend只展示了一个，但是每个图片还是自己的尺度，并没有统一（We did not control the color scale in different plots.）
 
 https://github.com/jinworks/CellChat/issues/20
 

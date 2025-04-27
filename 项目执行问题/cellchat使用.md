@@ -41,15 +41,35 @@ Explnations of edge color/weight, node color/size/shape: In all visualization pl
 
 # netVisual_heatmap()使用问题
 
-统一尺度问题
+- 统一尺度问题：行/列注释的barplot的y坐标，heatmap的颜色
 
-并行展示多个样本的heatmap，虽然legend只展示了一个，但是每个图片还是自己的尺度，并没有统一（We did not control the color scale in different plots.）
+并行展示多个样本的heatmap，用作者提供的方案，虽然legend只展示了一个，但是每个图片还是自己的尺度，并没有统一（We did not control the color scale in different plots.）
 
-https://github.com/jinworks/CellChat/issues/20
+https://github.com/jinworks/CellChat/issues/20 &nbsp;&nbsp;&nbsp;&nbsp; https://github.com/sqjin/CellChat/issues/414 &nbsp;&nbsp;&nbsp;&nbsp; https://github.com/sqjin/CellChat/issues/361
 
-https://github.com/sqjin/CellChat/issues/414
+- 解决方案，自己修改netVisual_heatmap代码
 
-https://github.com/sqjin/CellChat/issues/361
+1. 统一行/列barplot的y轴
+
+修改 https://github.com/jinworks/CellChat/blob/main/R/visualization.R#L1971 部分（ha2同），在`gp = gpar(fill = color.use.row, col=color.use.row))`中添加ylim，如`gp = gpar(fill = color.use.row, col=color.use.row),  ylim = c(0, 0.03))`
+
+2. 统一legend色度
+
+只在`heatmap_legend_param`中设置`at = colorbar.break`不能解决问题，虽然`colorbar.break`设置了范围0 - 0.015，但是颜色显示还会自动调整为最大值显示最深颜色，而不是中间色（假设最大值为0.01），`color.heatmap.use`自动映射颜色，所以需要将`color.heatmap.use`与固定范围结合，即在`color.heatmap.use`定义完后加一步固定范围的语句，如在 https://github.com/jinworks/CellChat/blob/main/R/visualization.R#L1978 完成后，加入
+
+```
+  color.heatmap.use <- circlize::colorRamp2(
+  seq(0, 0.015, length.out = 100),  # 固定范围 [0, 3]
+  color.heatmap.use                 # 使用你的颜色向量
+```
+
+修改前
+![image](https://github.com/user-attachments/assets/28aff27d-9cc8-41b3-8002-abff228aa25a)
+
+修改后
+![image](https://github.com/user-attachments/assets/1a6c69bf-15c8-49c7-a16b-335e0682f994)
+
+
 
 </br>
 

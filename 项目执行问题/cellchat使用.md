@@ -51,7 +51,7 @@ https://github.com/jinworks/CellChat/issues/20 &nbsp;&nbsp;&nbsp;&nbsp; https://
 
 1. 统一行/列barplot的y轴
 
-修改 https://github.com/jinworks/CellChat/blob/main/R/visualization.R#L1971 部分（ha2同），在`gp = gpar(fill = color.use.row, col=color.use.row))`中添加ylim，如`gp = gpar(fill = color.use.row, col=color.use.row),  ylim = c(0, 0.03))`
+修改 https://github.com/jinworks/CellChat/blob/main/R/visualization.R#L1971 部分（ha2同），在`gp = gpar(fill = color.use.row, col=color.use.row)`中添加ylim，如`gp = gpar(fill = color.use.row, col=color.use.row),  ylim = c(0, 0.03))`
 
 2. 统一legend色度
 

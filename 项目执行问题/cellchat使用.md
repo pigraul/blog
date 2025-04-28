@@ -73,6 +73,28 @@ https://github.com/jinworks/CellChat/issues/20 &nbsp;&nbsp;&nbsp;&nbsp; https://
 
 </br>
 
+# netAnalysis_signalingRole_scatter统一坐标
+
+与heatmap类似，修改代码 https://github.com/jinworks/CellChat/blob/346fb615aaefa3c1a2830ec2fe3a933c5f723c83/R/analysis.R#L2407 （或L2405，根据参数需要）
+```
+    gg <- gg + scale_size_continuous(limits = weight.MinMax, range = dot.size) +
+      scale_x_continuous(limits = c(0,25)) +  # 设置 x 轴范围
+      scale_y_continuous(limits = c(0,15))   # 设置 y 轴范围
+```
+
 # 提取特定pathway的基因
 
-cellchat自带画基因表达量的命令`plotGeneExpression`，用来画指定通路或者L-R pairs基因的表达量的“violin”, “dot”, “bar”。但是如果对表达量作图有个性化的需求，可以用`extractEnrichedLR`来提取出相应的基因列表，再自己画图。
+cellchat自带画基因表达量的命令`plotGeneExpression`，用来画指定通路或者L-R pairs基因的表达量的“violin”, “dot”, “bar”。但是如果对表达量作图有个性化的需求，可以用`extractEnrichedLR`来提取出相应的基因列表，再自己画图，注意加参数`geneLR.return = TRUE`（如果不加，只会返回$pairLR），例如`extractEnrichedLR(cellchat_bi, signaling = "TGFb" ,geneLR.return = TRUE)`， 返回结果为
+```
+$pairLR
+    A data.frame: 6 × 1 interaction_name
+    <chr>
+    TGFB1_TGFBR1_TGFBR2
+    TGFB2_TGFBR1_TGFBR2
+    TGFB3_TGFBR1_TGFBR2
+    TGFB1_ACVR1_TGFBR1
+    TGFB2_ACVR1_TGFBR1
+    TGFB3_ACVR1_TGFBR1
+$geneLR
+        'Tgfb1''Tgfb2''Tgfb3''Tgfbr1''Acvr1''Tgfbr2'
+```

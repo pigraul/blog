@@ -35,7 +35,8 @@ Explnations of edge color/weight, node color/size/shape: In all visualization pl
 
 ![image](https://github.com/user-attachments/assets/818d788d-a32f-48cc-87ab-5a8b67e3ef6a)
 
-
+- 需要注意的一点，如果存在孤立的细胞类型且需要显示该类型（默认参数），则程序会自动scale，无论是否设置；如果将`remove.isolate = TRUE`，那么宽度会随着信号强度改变
+  https://github.com/jinworks/CellChat/blob/346fb615aaefa3c1a2830ec2fe3a933c5f723c83/R/visualization.R#L2722
 
 </br>
 

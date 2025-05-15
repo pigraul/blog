@@ -61,7 +61,7 @@ https://github.com/jinworks/CellChat/issues/20 &nbsp;&nbsp;&nbsp;&nbsp; https://
 ```
   color.heatmap.use <- circlize::colorRamp2(
   seq(0, 0.015, length.out = 100),  # 固定范围 [0, 0.015]
-  color.heatmap.use                 # 使用你的颜色向量
+  color.heatmap.use)                # 使用你的颜色向量
 ```
 
 修改前

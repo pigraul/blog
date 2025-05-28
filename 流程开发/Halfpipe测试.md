@@ -12,3 +12,11 @@
 `pseudosingleend`在分析突变阶段，虽然是PE数据，但是只使用read1的数据，根据文章的建库类型（bulk链特异性文库RF），R1更靠近3UTR区
 
 比对时仍然使用PE比对；其他两个类型字面意思
+
+</br>
+
+- RNA edit sites过滤
+  
+负链A_to_G的突变注意与RNA编辑位点A_to_I(A_to_G)的区分
+
+参考网站[REDIportal](http://srv00.recas.ba.infn.it/atlas/download.html)

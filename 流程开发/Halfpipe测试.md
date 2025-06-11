@@ -20,3 +20,9 @@
 负链A_to_G的突变注意与RNA编辑位点A_to_I(A_to_G)的区分
 
 参考网站[REDIportal](http://srv00.recas.ba.infn.it/atlas/download.html)
+
+</br>
+
+- 配置文件中的`uridinethreshold`参数
+
+一个read中T碱基数量的最小阈值，以PE/SE150计算，平均每个碱基出现150/4=37.5次，一般设为30，只有大于这个值才参与estimation。

@@ -123,3 +123,14 @@ https://github.com/GreenleafLab/ArchR/blob/6feec354ad6c8052ddbc4626a2ca2d858ed46
 ```
 
 **流程优化建议：这个软件运行速度很快，为避免中断，建议全部设为1。**
+
+</br>
+
+# 其他优化建议
+
+## 设置随机种子以方便结果复现
+
+```
+library(ArchR)
+set.seed(1)
+```

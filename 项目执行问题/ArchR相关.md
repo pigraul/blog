@@ -85,7 +85,7 @@ addReproduciblePeakSet的报错，主要与其调用的MACS2软件相关。([iss
 
 关于合理设置genomeSize，在[MACS2的使用](https://hbctraining.github.io/Intro-to-ChIPseq/lessons/05_peak_calling_macs.html)中进行了讨论，
 需要设置的是 *Effective genome Size*，即是可比对区、低重复区的基因组大小，对于Hard mask的基因组来说，就是非N区的大小。
-关于Effective genome Size的定义和常见物种的大小，参见[effectiveGenomeSize](https://deeptools.readthedocs.io/en/develop/content/feature/effectiveGenomeSize.html)。
+关于Effective genome Size的定义和常见物种的大小，参见[deepTools](https://deeptools.readthedocs.io/en/develop/content/feature/effectiveGenomeSize.html)。
 
 ```
 projHeme4 <- addReproduciblePeakSet(
@@ -96,7 +96,7 @@ projHeme4 <- addReproduciblePeakSet(
         genomeSize = 1.04e+09)
 ```
 
-**流程优化建议：如物种有hard mask基因组，可以计算后给出；如没有，便于流程代码自动计算，可以直接设置为基因组大小的80%，特别复杂物种（如高重复，gap较多的）可适当降低，如70%。**
+**流程优化建议：可以根据deepTools的两种方案计算后参数传入；也可以简单点设置为基因组大小的80%，特别复杂物种（如高重复，gap较多的）可适当降低，如70%。**
 
 </br>
 

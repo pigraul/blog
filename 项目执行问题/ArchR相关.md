@@ -122,7 +122,7 @@ https://github.com/GreenleafLab/ArchR/blob/6feec354ad6c8052ddbc4626a2ca2d858ed46
         threads = 1)
 ```
 
-**流程优化建议：这个软件运行速度很快，为避免中断，建议全部设为1。**
+**流程优化建议：这个软件运行速度很快，为避免中断，建议后续步骤设为1。**
 
 </br>
 
@@ -134,3 +134,9 @@ https://github.com/GreenleafLab/ArchR/blob/6feec354ad6c8052ddbc4626a2ca2d858ed46
 library(ArchR)
 set.seed(1)
 ```
+
+## 锁定HDF5文件以方便多进程
+
+建议在流程开始前，与随机种子同时设定；不锁定很容易出错，详见上面的问题
+
+`addArchRLocking(locking = TRUE)`

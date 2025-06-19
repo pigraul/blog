@@ -51,7 +51,7 @@ Error in .requirePackage(genome) :
 [1] TRUE
 ```
 
-**流程优化建议，非内置物种的BSgenome包放在统一路径下，代码将该路径加入到默认库路径。**
+**流程优化建议：非内置物种的BSgenome包放在统一路径下，代码将该路径加入到默认库路径。**
 
 </br>
 

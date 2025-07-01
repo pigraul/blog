@@ -9,6 +9,8 @@
 
 - 模块化
 
+- 自动计算基因组大小
+
 
 # 新增参数
 
@@ -30,7 +32,7 @@
 
 
 - `archrdir` 当步骤不为0时，需提供ArchRProject所在路径，该路径下需包含`Save-ArchR-Project.rds`文件；
-    如改文件已被删除，可以去0.rds/路径下查找相应步骤的rds文件，拷贝至指定路径下并重命名。
+    如文件已被删除，可以去0.rds/路径下查找相应步骤的rds文件，拷贝至指定路径下并重命名。
 
 - `genomeSize` 有效基因组大小，若不提供，流程根据自动genome_annotation的chromSizes自动计算。
 

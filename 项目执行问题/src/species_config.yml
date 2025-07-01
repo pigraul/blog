@@ -1,0 +1,24 @@
+pig:
+  BSgenome: "BSgenome.Sscrofa.UCSC.susScr11"
+  TxDb: "TxDb.Sscrofa.UCSC.susScr11.refGene"
+  OrgDb: "org.Ss.eg.db"
+
+Dmelanogaster:
+  BSgenome: "BSgenome.Dmelanogaster.UCSC.dm6"
+  TxDb: "TxDb.Dmelanogaster.UCSC.dm6.ensGene"
+  OrgDb: "org.Dm.eg.db"
+
+
+chicken:
+  BSgenome: "BSgenome.Ggallus.UCSC.galGal6"
+  TxDb: "TxDb.Ggallus.UCSC.galGal6.refGene"
+  OrgDb: "org.Gg.eg.db"
+
+
+## 示例：可扩展其他物种
+#human:
+#  BSgenome: "BSgenome.Hsapiens.UCSC.hg38"
+#  TxDb: "TxDb.Hsapiens.UCSC.hg38.knownGene"
+#  OrgDb: "org.Hs.eg.db"
+
+

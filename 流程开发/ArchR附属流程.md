@@ -40,7 +40,7 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
 
     seed文件可以参考：https://github.com/Bioconductor/BSgenome/issues/62
 
-  *** 我们的系统目前无法建BSgenome, https://github.com/Bioconductor/BSgenome/issues/54 ***
+  **我们的系统目前无法建BSgenome, https://github.com/Bioconductor/BSgenome/issues/54 ；通过在gitpot上测试应该是权限问题**
 
   在gitpod上拉取bioconductor_docker，启动R环境构建
 
@@ -48,7 +48,7 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
   docker pull bioconductor/bioconductor_docker:3.21-R-4.5.1 
   docker images 
   # bioconductor/bioconductor_docker   3.21-R-4.5.1   07b54e5b8cf3   45 hours ago    4.65GB
-  # 启动R环境，由于权限问题只能在根目录下操作，不能挂在根目录，所以不执行--rm，保留容器用于cp文件
+  # 启动R环境，由于权限问题只能在根目录下操作，不能挂载根目录，所以不执行--rm，保留容器用于cp文件
   docker run -it --name my_bioconductor_app bioconductor/bioconductor_docker:3.21-R-4.5.1 R
 
   ## 在启动的R环境中执行BSgenomeForge的操作

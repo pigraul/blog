@@ -1,0 +1,90 @@
+```warning
+genome大于4G，谨慎！
+http://github.com/Bioconductor/BSgenomeForge/issues/45
+```
+
+</br>
+
+# BSgenome
+
+- 查询是否已有BSgenome
+
+  网页查询：https://bioconductor.org/packages/release/BiocViews.html#___BSgenome 或在R中代码查询
+
+  ```
+  BiocManager::available("BSgenome")
+  ```
+
+- 通过[BSgenomeForge](https://github.com/Bioconductor/BSgenomeForge)自建BSgenome
+  
+  - 对于NCBI或者UCSC来源的基因组数据，直接使用`forgeBSgenomeDataPkgFromNCBI()`或`forgeBSgenomeDataPkgFromUCSC()`即可，使用方法参考BSgenomeForge的[quick introduction](https://bioconductor.org/packages/release/bioc/vignettes/BSgenomeForge/inst/doc/QuickBSgenomeForge.html)
+
+  - 对于Ensembl来源的基因组数据，通过[Ensembl release note](https://ftp.ensembl.org/pub/release-114/species_EnsemblVertebrates.txt)查找Ensembl与NCBI的对应关系，然后使用`forgeBSgenomeDataPkgFromNCBI()`
+
+  - 对于其他来源的基因组数据，根据[](https://bioconductor.org/packages/release/bioc/vignettes/BSgenomeForge/inst/doc/AdvancedBSgenomeForge.pdf)来构建。如果序列较多，建议用2bit文件；如果基因组大于4G，建议用fasta来构建。
+
+    ```
+    # fasta
+    mkdir seqs_srcdir
+    faSplit byname Sta.fasta seqs_srcdir/
+    cd seqs_srcdir/
+    gzip *
+
+    # 2bit
+    library("BSgenomeForge")
+    fastaTo2bit("./Sta.fasta", "./Sta.2bit", assembly_accession=NA)
+
+    # 配置seed文件后，构建package
+    forgeBSgenomeDataPkg("./BSgenome.Stamariscina.UN.stav1-seed")
+    ```
+
+    seed文件可以参考：https://github.com/Bioconductor/BSgenome/issues/62
+
+  *** 我们的系统目前无法建BSgenome, https://github.com/Bioconductor/BSgenome/issues/54 ***
+
+  在gitpod上拉取bioconductor_docker，启动R环境构建
+
+  ```
+  docker pull bioconductor/bioconductor_docker:3.21-R-4.5.1 
+  docker images 
+  # bioconductor/bioconductor_docker   3.21-R-4.5.1   07b54e5b8cf3   45 hours ago    4.65GB
+  # 启动R环境，由于权限问题只能在根目录下操作，不能挂在根目录，所以不执行--rm，保留容器用于cp文件
+  docker run -it --name my_bioconductor_app bioconductor/bioconductor_docker:3.21-R-4.5.1 R
+
+  ## 在启动的R环境中执行BSgenomeForge的操作
+
+  # 关闭容器，将结果cp出来，本例结果路径为/BSgenome.Stamariscina.NCBI.ASM302478v1
+  docker cp bioconductor/bioconductor_docker:/BSgenome.Stamariscina.NCBI.ASM302478v1 /workspace/voting-app/test/
+  ```
+
+</br>
+
+# TxDB
+
+- 查询是否已有BSgenome
+
+  网页查询：https://bioconductor.org/packages/devel/BiocViews.html#___TxDb 或在R中代码查询
+
+  ```
+  BiocManager::available("TxDb")
+  ```
+
+  TBC
+
+</br>
+
+# OrgDb
+
+TBC
+
+</br>
+
+# 有效基因组大小[faCount](https://github.com/ENCODE-DCC/kentUtils?tab=readme-ov-file)
+
+通过`faCount genome.fa  -summary > gemone.stat`计算基因组各碱基含量后，用非N长度作为有效基因组大小。
+
+```
+#seq     len           A            C            G            T            N          cpg
+total    1053332251    303321718    221538399    221562717    303525499    3383918    12649701
+prcnt    1.0           0.2880       0.2103       0.2103       0.2882       0.0032     0.0120
+```

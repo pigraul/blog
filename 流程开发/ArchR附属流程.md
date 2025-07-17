@@ -150,6 +150,23 @@ saveRDS(gene.ranges,file="gene.rds")
 saveRDS(exon.ranges,file="exon.rds")
 ```
 
+非Ensembl来源的gtf文件需要满足以下条件：
+- transcript部分，需要有`transcript_id`和`gene_id`
+- exon部分，需要有`transcript_id`和`exon_number`
+- version = "NA"
+
+最简的gtf格式，少于这些信息，会无法构建db
+```
+scaffold329     maker   transcript      12736   14066   2394    -       .       transcript_id "ST329G00.1"; gene_id "ST329G00";
+scaffold329     maker   exon    12736   12996   .       -       .       transcript_id "ST329G00.1"; gene_id "ST329G00"; exon_number "3";
+scaffold329     maker   exon    13622   13724   .       -       .       transcript_id "ST329G00.1"; gene_id "ST329G00"; exon_number "2";
+scaffold329     maker   exon    13914   14066   .       -       .       transcript_id "ST329G00.1"; gene_id "ST329G00"; exon_number "1";
+scaffold329     maker   transcript      15125   15584   266     +       .       transcript_id "ST329G02.1"; gene_id "ST329G02";
+scaffold329     maker   exon    15125   15126   .       +       .       transcript_id "ST329G02.1"; gene_id "ST329G02"; exon_number "1";
+scaffold329     maker   exon    15205   15306   .       +       .       transcript_id "ST329G02.1"; gene_id "ST329G02"; exon_number "2";
+scaffold329     maker   exon    15423   15584   .       +       .       transcript_id "ST329G02.1"; gene_id "ST329G02"; exon_number "3";
+```
+
 </br>
 
 # 有效基因组大小[faCount](https://github.com/ENCODE-DCC/kentUtils?tab=readme-ov-file)

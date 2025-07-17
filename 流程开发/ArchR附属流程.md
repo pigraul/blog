@@ -40,7 +40,7 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
 
     seed文件可以参考：https://github.com/Bioconductor/BSgenome/issues/62
 
-  **我们的系统目前无法建BSgenome, https://github.com/Bioconductor/BSgenome/issues/54 ；通过在gitpot上测试应该是权限问题**
+  **我们的系统目前无法建BSgenome, https://github.com/Bioconductor/BSgenome/issues/54 ；通过在gitpot上测试也许是权限问题**
 
   在gitpod上拉取bioconductor_docker，启动R环境构建
 
@@ -128,6 +128,8 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
   library(AnnotationHub)
   makeOrganismDbFromTxDb(txdb)
   ```
+
+</br>
 
 # ensembldb and GenomicRanges
 

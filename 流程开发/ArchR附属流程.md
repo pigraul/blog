@@ -21,7 +21,7 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
 
   - 对于Ensembl来源的基因组数据，通过[Ensembl release note](https://ftp.ensembl.org/pub/release-114/species_EnsemblVertebrates.txt)查找Ensembl与NCBI的对应关系，然后使用`forgeBSgenomeDataPkgFromNCBI()`
 
-  - 对于其他来源的基因组数据，根据[](https://bioconductor.org/packages/release/bioc/vignettes/BSgenomeForge/inst/doc/AdvancedBSgenomeForge.pdf)来构建。如果序列较多，建议用2bit文件；如果基因组大于4G，建议用fasta来构建。
+  - 对于其他来源的基因组数据，根据[Advanced BSgenomeForge usage](https://bioconductor.org/packages/release/bioc/vignettes/BSgenomeForge/inst/doc/AdvancedBSgenomeForge.pdf)来构建。如果序列较多，建议用2bit文件；如果基因组大于4G，建议用fasta来构建。
 
     ```
     # fasta
@@ -57,6 +57,17 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
   docker cp bioconductor/bioconductor_docker:/BSgenome.Stamariscina.NCBI.ASM302478v1 /workspace/voting-app/test/
   ```
 
+  最后用R命令构建包
+
+  ```
+  R CMD build ./BSgenome.Stamariscina.NCBI.ASM302478v1
+  R CMD check BSgenome.Stamariscina.NCBI.ASM302478v1_1.0.0.tar.gz  # check
+  R CMD INSTALL BSgenome.Stamariscina.NCBI.ASM302478v1_1.0.0.tar.gz   # install
+
+  # 在R中调用
+  > library(BSgenome.Stamariscina.NCBI.ASM302478v1)
+  ```
+
 </br>
 
 # TxDB
@@ -69,7 +80,29 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
   BiocManager::available("TxDb")
   ```
 
-  TBC
+  构建参考[Manual](https://www.bioconductor.org/packages/devel/bioc/vignettes/txdbmaker/inst/doc/txdbmaker.html)，可以直接构建UCSC/Ensembl/Biomart来源的数据，非常规数据库来源的可以使用gtf或gff3文件来构建（要确保符合相应的文件格式要求）
+
+  ```
+  > library(txdbmaker)
+  > txdb_gtf <- makeTxDbFromGFF(file = "Sta.gtf", format = "gtf", dataSource = "NCBI assembly ASM302478v1", organism = "Selaginella tamariscina")
+  > saveDb(txdb_gtf, file="Sta_txdb.sqlite")
+  TxDb object:
+  # Db type: TxDb
+  # Supporting package: GenomicFeatures
+  # Data source: NCBI assembly ASM302478v1
+  # Organism: Selaginella tamariscina
+  # Taxonomy ID: 137178
+  # miRBase build ID: NA
+  # Genome: NA
+  # Nb of transcripts: 27761
+  # Db created by: txdbmaker package from Bioconductor
+  # Creation time: 2025-07-17 10:13:19 +0800 (Thu, 17 Jul 2025)
+  # txdbmaker version at creation time: 1.2.0
+  # RSQLite version at creation time: 2.4.1
+  # DBSCHEMAVERSION: 1.2
+  
+  > sta_txdb <- loadDb("Sta_txdb.sqlite")
+  ```
 
 </br>
 
@@ -81,10 +114,14 @@ TBC
 
 # 有效基因组大小[faCount](https://github.com/ENCODE-DCC/kentUtils?tab=readme-ov-file)
 
-通过`faCount genome.fa  -summary > gemone.stat`计算基因组各碱基含量后，用非N长度作为有效基因组大小。
+通过`faCount genome.fa  -summary > gemone.stat`计算基因组各碱基含量后，用非N长度(len - N)作为有效基因组大小。
 
 ```
 #seq     len           A            C            G            T            N          cpg
 total    1053332251    303321718    221538399    221562717    303525499    3383918    12649701
 prcnt    1.0           0.2880       0.2103       0.2103       0.2882       0.0032     0.0120
 ```
+
+
+
+**以上都可以使用集群ucsc_kents环境**

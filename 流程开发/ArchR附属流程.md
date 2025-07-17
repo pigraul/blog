@@ -70,15 +70,17 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
 
 </br>
 
-# TxDB
+# TxDb
 
-- 查询是否已有BSgenome
+- 查询是否已有TxDb
 
   网页查询：https://bioconductor.org/packages/devel/BiocViews.html#___TxDb 或在R中代码查询
 
   ```
   BiocManager::available("TxDb")
   ```
+
+- 通过[txdbmaker](https://github.com/Bioconductor/txdbmaker)构建
 
   构建参考[Manual](https://www.bioconductor.org/packages/devel/bioc/vignettes/txdbmaker/inst/doc/txdbmaker.html)，可以直接构建UCSC/Ensembl/Biomart来源的数据，非常规数据库来源的可以使用gtf或gff3文件来构建（要确保符合相应的文件格式要求）
 
@@ -108,7 +110,17 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
 
 # OrgDb
 
-TBC
+- 查询是否已有OrgDb
+
+  网页查询：https://bioconductor.org/packages/devel/BiocViews.html#___OrgDb 或在R中代码查询
+
+  ```
+  BiocManager::available("OrgDb")
+  ```
+
+- 通过[OrganismDbi](https://github.com/Bioconductor/OrganismDbi)构建
+
+  构建参考[Manual](https://bioconductor.org/packages/release/bioc/vignettes/OrganismDbi/inst/doc/OrganismDbi.html)，待测试。
 
 </br>
 

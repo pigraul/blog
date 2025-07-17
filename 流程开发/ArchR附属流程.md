@@ -120,7 +120,14 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
 
 - 通过[OrganismDbi](https://github.com/Bioconductor/OrganismDbi)构建
 
-  构建参考[Manual](https://bioconductor.org/packages/release/bioc/vignettes/OrganismDbi/inst/doc/OrganismDbi.html)，待测试。
+  构建参考[Manual](https://bioconductor.org/packages/release/bioc/vignettes/OrganismDbi/inst/doc/OrganismDbi.html)。
+  简单的根据TxDb构建使用[makeOrganismDbFromTxDb](https://rdrr.io/bioc/OrganismDbi/man/makeOrganismDbFromTxDb.html)（仅限Bioconductor中已有的OrgDb package）。
+
+  ```
+  library(OrganismDbi)
+  library(AnnotationHub)
+  makeOrganismDbFromTxDb(txdb)
+  ```
 
 </br>
 

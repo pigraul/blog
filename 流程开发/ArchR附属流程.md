@@ -129,6 +129,27 @@ http://github.com/Bioconductor/BSgenomeForge/issues/45
   makeOrganismDbFromTxDb(txdb)
   ```
 
+# ensembldb and GenomicRanges
+
+当无法制作TxDb或OrgDb时，可以提供三个`GRanges` object: TSS/exons/genes来构建`geneAnnotation`，参考ArchR[官方文档](https://www.archrproject.com/bookdown/getting-set-up.html#)和[issues#112](https://github.com/GreenleafLab/ArchR/issues/112#issuecomment-630380660)。
+
+```
+library(ensembldb)
+library(GenomicRanges)
+db <- ensDbFromGtf(gtf="gene.gtf",organism = "Gallus_gallus", genomeVersion = "GRCg6a", version = 111)
+edb <- EnsDb(db)
+rm(db)
+edb = addFilter(edb, filter = GeneBiotypeFilter('protein_coding',"=="))
+gene.ranges <- genes(edb)
+tss.ranges <- resize(gene.ranges, 1, "start")
+exon.ranges = exons(edb)
+
+# 可以将构建好的object保存供后续使用
+saveRDS(tss.ranges,file="tss.rds")
+saveRDS(gene.ranges,file="gene.rds")
+saveRDS(exon.ranges,file="exon.rds")
+```
+
 </br>
 
 # 有效基因组大小[faCount](https://github.com/ENCODE-DCC/kentUtils?tab=readme-ov-file)

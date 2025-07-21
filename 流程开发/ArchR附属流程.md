@@ -171,6 +171,19 @@ scaffold329     maker   exon    15423   15584   .       +       .       transcri
 
 </br>
 
+# Motif DB
+
+ArchR Motif注释首选JASPAR，或者cisbp, encode or homer。查询物种是否在数据库中。
+
+- [JASPAR 2020](https://jaspar2020.genereg.net/) https://jaspar.elixir.no/api/v1/docs/
+- [CIS-BP](https://cisbp.ccbr.utoronto.ca/summary.php?by=1&orderby=Total_direct)
+- [encode](https://compbio.mit.edu/encode-motifs/)和[HOMER](http://homer.ucsd.edu/homer/)/[HOMER Plants](http://homer.ucsd.edu/homer/plants/)除已定义的少部分物种外，采用预测模式。
+- [vierstra](https://github.com/vierstralab/motif-clustering)也是预测模式，在测试阶段，不建议使用。
+
+附：[Motif Databases](https://meme-suite.org/meme/db/motifs)
+
+</br>
+
 # 有效基因组大小[faCount](https://github.com/ENCODE-DCC/kentUtils?tab=readme-ov-file)
 
 通过`faCount genome.fa  -summary > gemone.stat`计算基因组各碱基含量后，用非N长度(len - N)作为有效基因组大小。

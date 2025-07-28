@@ -766,12 +766,12 @@ step4_Call_Peaks <- function(projHeme3, outdir, prefix, genomeSize=NULL, minCell
 }
 
 
-step5_Motif <- function(projHeme4, outdir, prefix, FDR, testmethod=testmethod){
+step5_Motif <- function(projHeme4, outdir, prefix, FDR, testmethod=testmethod, motifSet=motifSet){
     dir.create (file.path(outdir,"Plots","04.MarkerpeakMotifEnrichment"),showWarnings=T)
     outdir_motif <- file.path(outdir,"Plots","04.MarkerpeakMotifEnrichment")
 
     ## Chapter 14 Motif and Feature Enrichment with ArchR
-    projHeme5 <- addMotifAnnotations(ArchRProj = projHeme4, motifSet = "JASPAR2020", name = "Motif")
+    projHeme5 <- addMotifAnnotations(ArchRProj = projHeme4, motifSet = motifSet, name = "Motif")
     projHeme5 <- addImputeWeights(projHeme5)
 
     ## re get markerpeaks

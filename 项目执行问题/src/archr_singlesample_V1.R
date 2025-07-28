@@ -32,7 +32,8 @@ argv <- add_argument (argv,"--dim", help="use cluster number 1:20",default=20)
 argv <- add_argument (argv,"--minTSS", help="min signalvsbackground ratio,default=1",default=0.1)
 argv <- add_argument (argv,"--minFrags", help="min unique fragment number,default=100",default=200)
 argv <- add_argument (argv,"--scRNA", help ="path of scRNA rds or no",default = "no")
-argv <- add_argument (argv,"--testMethod",help = "wilcoxon, ttest or binomial",default = "wilcoxon")
+argv <- add_argument (argv,"--testMethod",help = "JASPAR2020, cisbp, encode or homer",default = "wilcoxon")
+argv <- add_argument (argv,"--motifSet",help = "wilcoxon, ttest or binomial",default = "JASPAR2020")
 argv <- add_argument (argv,"--peakcells", help="call peaks for all cluster with more than 50 cells",default=50)
 argv <- add_argument (argv,"--extraLib", help="extra R lib dir", default="/Personal/wangxiang/R_lib/")
 argv <- add_argument (argv,"--fdr",help="fdr from step4, required if start from step5", default = NULL)
@@ -72,6 +73,7 @@ scRNA <- argv$scRNA
 minTSS<-argv$minTSS
 minFrags<-argv$minFrags
 testmethod <- argv$testMethod
+motifSet <- argv$motifSet
 prefix <- argv$prefix
 peakfilter <- as.numeric(argv$peakcells)
 elib <- argv$extraLib

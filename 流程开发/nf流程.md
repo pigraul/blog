@@ -11,6 +11,7 @@
 - [nextflow不输出到最终路径](#nextflow不输出到最终路径)
 - [scanpy docker权限问题](#scanpy-docker权限问题)
 - [java.lang.InternalError错误](#javalanginternalerror错误)
+- [samplesheetToList报错问题](../work_log/2026Q1.md#nf中samplesheetToList报错问题)
 
 <br>
 

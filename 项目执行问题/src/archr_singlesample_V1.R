@@ -284,7 +284,7 @@ if( 5 %in% run_steps){
         .libPaths(c(elib, original_libpaths))
     }
 
-    projHeme5 <- step5_Motif(projHeme4, outdir, prefix, FDR, testmethod=testmethod)
+    projHeme5 <- step5_Motif(projHeme4, outdir, prefix, FDR, testmethod=testmethod, motifSet=motifSet)
     message("[INFO] Motif and Feature Enrichment execution finished.")
 }
 

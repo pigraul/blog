@@ -48,3 +48,26 @@ https://plotly.com/python/axes/
 fig.update_xaxes(mirror=True, showline=True,linecolor='grey')
 fig.update_yaxes(mirror=True, showline=True,linecolor='grey')
 ```
+
+
+
+# violin核密度函数设置
+`fig.update_traces(spanmode=<VALUE>)`
+
+**spanmode参数** 的功能解释，核心是定义 “密度函数计算的数据范围” 如何确定，分三种模式：
+
+- spanmode="soft"（默认）
+
+密度函数的计算范围会超出数据本身的极值：从 “样本最小值 - 2 个带宽” 到 “样本最大值 + 2 个带宽”。
+
+（注：“带宽” 是计算核密度估计的参数，默认由 Silverman 法则自动确定，此模式能避免密度函数在数据边缘突然截断，让小提琴图两端更平滑。）
+
+- spanmode="hard"
+
+密度函数的计算范围严格限定在数据自身的极值内：从 “样本最小值” 到 “样本最大值”。
+
+此模式下，密度函数会在数据边缘直接终止，小提琴图两端会呈现 “截平” 的效果，与ggplot2的默认的小提琴图行为一致。
+
+- spanmode="manual"
+
+自定义密度函数的计算范围，需配合span参数使用（span需传入一个列表，如[min_val, max_val]，明确指定范围的上下限），适用于需要精准控制可视化范围的场景。
